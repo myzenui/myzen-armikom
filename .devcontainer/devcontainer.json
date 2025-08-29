@@ -1,5 +1,5 @@
 {
-    "image": "myzen/devcontainer:18",
+    "image": "myzen/devcontainer:19",
     "postStartCommand": "/bin/bash /start.sh",
     "forwardPorts": [1433],
     "containerEnv": {
