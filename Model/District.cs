@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ namespace Zen.Model
         public virtual Guid? Id { get; set; }
         public virtual string? Name { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Districts")]
         public virtual City? City { get; set; }
         [InverseProperty("District")]

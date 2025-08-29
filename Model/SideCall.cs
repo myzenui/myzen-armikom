@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,8 +27,10 @@ namespace Zen.Model
         public virtual DateTime? AlarmTime { get; set; }
         public virtual bool? IsPostponed { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Calls")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Calls")]
         public virtual FileData? Recording { get; set; }
     }

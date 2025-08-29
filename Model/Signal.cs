@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,8 +24,10 @@ namespace Zen.Model
         public virtual string? UserCode { get; set; }
         public virtual string? UserNo { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Signals")]
         public virtual AlarmCategory? AlarmCategory { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Signals")]
         public virtual Protocol? Protocol { get; set; }
         [InverseProperty("Signal")]

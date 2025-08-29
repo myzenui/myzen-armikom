@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,8 +17,10 @@ namespace Zen.Model
         public virtual string? Name1 { get; set; }
         public virtual string? Name2 { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Products")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Product? Product { get; set; }
     }

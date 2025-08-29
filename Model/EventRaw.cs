@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ namespace Zen.Model
         public virtual DateTime? RecordDateTime { get; set; }
         public virtual string? RawData { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("EventRaws")]
         public virtual Receiver? Receiver { get; set; }
         [InverseProperty("EventRaw")]

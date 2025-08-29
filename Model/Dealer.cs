@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,16 +27,21 @@ namespace Zen.Model
         public virtual string? OnCallServiceNumber { get; set; }
         public virtual byte[]? Logo { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Dealers")]
         public virtual City? City { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Dealers")]
         public virtual Region? Region { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Dealers")]
         public virtual District? District { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Dealers")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
         [InverseProperty("ReleatedDealer")]
         public virtual IList<Dealer> SubDealers { get; set; } = new ObservableCollection<Dealer>();
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("SubDealers")]
         public virtual Dealer? ReleatedDealer { get; set; }
         [InverseProperty("Dealer")]

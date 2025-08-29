@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +29,7 @@ namespace Zen.Model
 
         [InverseProperty("RecurrencePattern")]
         public virtual IList<Event> RecurrenceEvents { get; set; } = new ObservableCollection<Event>();
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("RecurrenceEvents")]
         public virtual Event? RecurrencePattern { get; set; }
         [InverseProperty("Events")]

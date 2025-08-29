@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,7 @@ namespace Zen.Model
         public virtual string? Restore { get; set; }
         public virtual int? ZoneType { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Zones")]
         public virtual Side? Side { get; set; }
         [InverseProperty("SideZone")]

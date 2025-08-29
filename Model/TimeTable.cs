@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,6 +21,7 @@ namespace Zen.Model
         public virtual int? ClosingLate { get; set; }
         public virtual Guid? Id1 { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("TimeTables")]
         public virtual Side? Side { get; set; }
     }

@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,28 +43,40 @@ namespace Zen.Model
         public virtual decimal? GprsTimeoutMinutes { get; set; }
         public virtual string? DocumentId { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Customer? Customer { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Dealer? Dealer { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Brand? Brand { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Model? Model { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Protocol? Protocol { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual City? City { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual District? District { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual Region? Region { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("InstalledSides")]
         public virtual Dealer? Installer { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual AccountType? AccountType { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Sides")]
         public virtual SideType? SideType { get; set; }
         [InverseProperty("Side")]

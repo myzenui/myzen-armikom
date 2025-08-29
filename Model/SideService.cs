@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,12 +19,16 @@ namespace Zen.Model
         public virtual string? Statement { get; set; }
         public virtual DateTime? ProcessDate { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Services")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Services")]
         public virtual ServiceType? ServiceType { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Services")]
         public virtual Dealer? ServiceCompany { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Services")]
         public virtual TechnicalPerson? ServicePerson { get; set; }
         [InverseProperty("SideService")]

@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,8 +30,10 @@ namespace Zen.Model
         public virtual bool? Active { get; set; }
         public virtual DateTime? LastSignalDate { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Receivers")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Receivers")]
         public virtual DeviceRegex? DeviceRegex { get; set; }
         [InverseProperty("Receiver")]

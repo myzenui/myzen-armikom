@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,10 +24,13 @@ namespace Zen.Model
         public virtual int? SideNoEnd { get; set; }
         public virtual int? SideNoStart { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("MonitoringCenters")]
         public virtual City? City { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("MonitoringCenters")]
         public virtual District? District { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("MonitoringCenters")]
         public virtual Country? Country { get; set; }
         [InverseProperty("MonitoringCenter")]

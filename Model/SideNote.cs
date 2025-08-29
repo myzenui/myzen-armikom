@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,10 +17,13 @@ namespace Zen.Model
         public virtual DateTime? ValidDate { get; set; }
         public virtual string? FontColor { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Notes")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Notes")]
         public virtual NoteType? NoteType { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Notes")]
         public virtual AlarmCategory? AlarmCategory { get; set; }
     }

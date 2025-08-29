@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,8 +16,10 @@ namespace Zen.Model
         public virtual string? MailText { get; set; }
         public virtual DateTime? RecordDate { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Mails")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Mails")]
         public virtual AlarmCategory? AlarmCategory { get; set; }
     }

@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +19,7 @@ namespace Zen.Model
         public virtual string? SmsOrg { get; set; }
         public virtual int? Provider { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("SmsSettings")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
     }

@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,14 +25,19 @@ namespace Zen.Model
         public virtual string? Sound { get; set; }
         public virtual Guid? Id1 { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Events")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Events")]
         public virtual Signal? Signal { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("SignalEvents")]
         public virtual Receiver? Receiver { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("SignalEvents")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("SignalEvents")]
         public virtual EventRaw? EventRaw { get; set; }
         [InverseProperty("Event")]

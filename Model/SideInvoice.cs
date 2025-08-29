@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ namespace Zen.Model
         public virtual DateTime? Date { get; set; }
         public virtual bool? Paid { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Invoices")]
         public virtual SideAgreement? SideAgreement { get; set; }
     }

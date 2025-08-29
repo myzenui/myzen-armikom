@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ namespace Zen.Model
         public virtual bool? Monitoring { get; set; }
         public virtual decimal? Price { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("AccountItems")]
         public virtual MonitoringCenter? MonitoringCenter { get; set; }
         [InverseProperty("AccountItem")]

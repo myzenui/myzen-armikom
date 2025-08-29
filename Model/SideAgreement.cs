@@ -1,4 +1,5 @@
 using DevExpress.Persistent.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,8 +17,10 @@ namespace Zen.Model
         public virtual int? PaymentPeriod { get; set; }
         public virtual DateTime? EndDate { get; set; }
 
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Agreements")]
         public virtual Side? Side { get; set; }
+        [DeleteBehavior(DeleteBehavior.Restrict)]
         [InverseProperty("Agreements")]
         public virtual AccountItem? AccountItem { get; set; }
         [InverseProperty("SideAgreement")]
