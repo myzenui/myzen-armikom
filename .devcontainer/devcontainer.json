@@ -1,5 +1,5 @@
 {
-    "image": "myzen/devcontainer:19",
+    "image": "myzen/devcontainer:23",
     "postStartCommand": "/bin/bash /start.sh",
     "forwardPorts": [1433],
     "containerEnv": {
@@ -14,7 +14,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-dotnettools.csharp"
+                "ms-dotnettools.csharp",
+                "mtxr.sqltools-driver-mssql"
             ],
             "settings": {
                 "files.exclude": {
@@ -28,7 +29,26 @@
                     "nuget.config": true,
                     "dev.sln": true,
                     "global.json": true,
-                }
+                },
+                "sqltools.connections": [
+                    {
+                        "connectionTimeout": 15,
+                        "mssqlOptions": {
+                            "appName": "SQLTools",
+                            "useUTC": true,
+                            "encrypt": true,
+                            "trustServerCertificate": true
+                        },
+                        "ssh": "Disabled",
+                        "previewLimit": 50,
+                        "server": "localhost",
+                        "port": 1433,
+                        "driver": "MSSQL",
+                        "name": "local",
+                        "username": "sa",
+                        "password": "ZenPassword123!"
+                    }
+                ]
             }
         }
     }
